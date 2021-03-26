@@ -1,2 +1,2 @@
-# 3d-wihm-variable-friction
-Simulation environment for 3D within hand manipulation using variable friction fingers
+# Within-Hand-Manipulation using Variable Friction Fingers
+This repository includes the simulation environment and command nodes for within hand manipulation using variable friction fingers.
