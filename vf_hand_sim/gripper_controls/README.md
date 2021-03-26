@@ -1,9 +1,7 @@
 #### Available Services:
 
 Do not forget to source the workspace
-```
-  source ~/mer_lab/ros_ws/devel/setup.bash
-```
+
 1. Slide object down on left finger, provide left finger position reference (+ for opening, - for closing direction)
 ```
   rosservice call /Slide_Left_Finger_Down "data: 0.0"
