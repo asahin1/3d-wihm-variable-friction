@@ -5,7 +5,7 @@
 #include "std_msgs/Float64.h"
 #include <gripper_controls/Friction.h>
 #include <sensor_msgs/JointState.h>
-#include <simulation_ui/SimFriction.h>
+// #include <simulation_ui/SimFriction.h>
 
 class LowLvlController{
 private:
@@ -127,10 +127,10 @@ public:
     left_position = msg.position[1];
     right_position = msg.position[0];
   }
-  void fLimitsCallback(const simulation_ui::SimFriction& msg){
-    low_fLim = msg.low;
-    high_fLim = msg.high;
-  }
+  // void fLimitsCallback(const simulation_ui::SimFriction& msg){
+  //   low_fLim = msg.low;
+  //   high_fLim = msg.high;
+  // }
 };
 
 int main(int argc, char **argv){
@@ -156,7 +156,7 @@ int main(int argc, char **argv){
   ros::ServiceServer service_pos = n.advertiseService("pos_change", &LowLvlController::set_pos, &lowctrl);
   ros::ServiceServer service_set_friction = n.advertiseService("set_friction", &LowLvlController::friction_setter, &lowctrl);
   ros::Subscriber js_sub = n.subscribe(topic_js,1000,&LowLvlController::jsCallback, &lowctrl);
-  ros::Subscriber fLimits_sub = n.subscribe("/vf_hand/friction_limits",1000,&LowLvlController::fLimitsCallback, &lowctrl);
+  // ros::Subscriber fLimits_sub = n.subscribe("/vf_hand/friction_limits",1000,&LowLvlController::fLimitsCallback, &lowctrl);
   ros::Publisher lp = n.advertise<std_msgs::Float64>("/vf_hand/l_finger_position/command", 1000);
   ros::Publisher rp = n.advertise<std_msgs::Float64>("/vf_hand/r_finger_position/command", 1000);
   ros::Publisher le = n.advertise<std_msgs::Float64>("/vf_hand/l_finger_effort/command", 1000);
